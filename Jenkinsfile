@@ -8,29 +8,29 @@ pipeline {
             echo "pull successful"
         }
     }
-    stage('Install Dependencies') {
-      steps {
-        sh 'npm install'
-      }
-    }
-    stage('Test') {
-      steps {
-        sh 'npm test || true'
-      }
-    }
-    stage('Build') {
-      steps {
-        sh 'npm run build || true-'
-      }
-    }
-    stage('Deploy') {
-      steps {
-        sh '''
-          pm2 stop app || true
-          pm2 start index.js --name node-js-sample --update-env
-          sudo systemctl reload nginx
-        '''
-      }
-    }
+    // stage('Install Dependencies') {
+    //   steps {
+    //     sh 'npm install'
+    //   }
+    // }
+    // stage('Test') {
+    //   steps {
+    //     sh 'npm test || true'
+    //   }
+    // }
+    // stage('Build') {
+    //   steps {
+    //     sh 'npm run build || true-'
+    //   }
+    // }
+    // stage('Deploy') {
+    //   steps {
+    //     sh '''
+    //       pm2 stop node-js-sample || true
+    //       pm2 start index.js --name node-js-sample --update-env
+    //       sudo systemctl reload nginx
+    //     '''
+    //   }
+    // }
   }
 }
