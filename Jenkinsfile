@@ -20,20 +20,6 @@ pipeline {
         }
       }
     }
-    stage('Test') {
-      steps {
-        dir('/home/ubuntu/workspace/nodejsPipeline/node-js-sample') {
-            sh 'npm test || true'
-        }
-      }
-    }
-    stage('Build') {
-      steps {
-        dir('/home/ubuntu/workspace/nodejsPipeline/node-js-sample') {
-            sh 'npm run build || true-'
-        }
-      }
-    }
     stage('Deploy') {
       steps {
         dir('/home/ubuntu/workspace/nodejsPipeline/node-js-sample') {
