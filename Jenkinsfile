@@ -22,21 +22,27 @@ pipeline {
     }
     stage('Test') {
       steps {
-        sh 'npm test || true'
+        dir('/home/ubuntu/workspace/nodejsPipeline/node-js-sample') {
+            sh 'npm test || true'
+        }
       }
     }
     stage('Build') {
       steps {
-        sh 'npm run build || true-'
+        dir('/home/ubuntu/workspace/nodejsPipeline/node-js-sample') {
+            sh 'npm run build || true-'
+        }
       }
     }
     stage('Deploy') {
       steps {
-        sh '''
-          pm2 stop node-js-sample || true
-          pm2 start index.js --name node-js-sample --update-env
-          sudo systemctl reload nginx
-        '''
+        dir('/home/ubuntu/workspace/nodejsPipeline/node-js-sample') {
+            sh '''
+                pm2 stop node-js-sample || true
+                pm2 start index.js --name node-js-sample --update-env
+                sudo systemctl reload nginx
+            '''
+        }
       }
     }
   }
