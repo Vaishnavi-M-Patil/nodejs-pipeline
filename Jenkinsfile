@@ -13,11 +13,11 @@ pipeline {
             git branch: 'main', credentialsId: 'git', url: 'https://github.com/Vaishnavi-M-Patil/node-js-sample.git'
         }
     }
-    // stage('Install Dependencies') {
-    //   steps {
-    //     sh 'npm install'
-    //   }
-    // }
+    stage('Install Dependencies') {
+      steps {
+        sh 'npm install'
+      }
+    }
     // stage('Test') {
     //   steps {
     //     sh 'npm test || true'
