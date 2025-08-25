@@ -4,8 +4,7 @@ pipeline {
   stages {
     stage('pull'){
         steps{
-            git branch: 'main', url: 'https://github.com/Vaishnavi-M-Patil/node-js-sample.git'
-            echo "pull successful"
+            git branch: 'main', credentialsId: 'git', url: 'https://github.com/Vaishnavi-M-Patil/node-js-sample.git'            echo "pull successful"
         }
     }
     // stage('Install Dependencies') {
