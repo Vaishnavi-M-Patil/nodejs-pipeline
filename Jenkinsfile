@@ -2,6 +2,12 @@ pipeline {
   agent { label 'nginx' }
 
   stages {
+    stage('Checkout Pipeline Repo') {
+      steps {
+        // This may be optional if Jenkins already checks out the pipeline repo automatically
+        checkout scm
+      }
+    }
     stage('pull'){
         steps{
             git branch: 'main', credentialsId: 'git', url: 'https://github.com/Vaishnavi-M-Patil/node-js-sample.git'
