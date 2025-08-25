@@ -14,8 +14,8 @@ pipeline {
         }
     }
     stage('Install Dependencies') {
-      dir('/home/ubuntu/workspace/nodejsPipeline/node-js-sample') {
-        steps {
+       steps {
+        dir('/home/ubuntu/workspace/nodejsPipeline/node-js-sample') {
             sh 'npm install'
         }
       }
