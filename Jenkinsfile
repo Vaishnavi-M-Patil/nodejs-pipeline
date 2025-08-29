@@ -10,21 +10,27 @@ pipeline {
     }
     stage('pull'){
         steps{
-            git branch: 'main', url: 'https://github.com/Vaishnavi-M-Patil/node-js-sample.git'
+            dir('node-js-sample') {
+              git branch: 'main', url: 'https://github.com/Vaishnavi-M-Patil/node-js-sample.git'
+            }
         }
     }
     stage('Install Dependencies') {
        steps {
-          sh 'npm install'
+          dir('node-js-sample') {
+            sh 'npm install'
+          }
       }
     }
     stage('Deploy') {
       steps {
-          sh '''
-              pm2 stop node-js-sample || true
-              pm2 start index.js --name node-js-sample --update-env
-              sudo systemctl reload nginx
-          '''
+          dir('node-js-sample') {
+            sh '''
+                pm2 stop node-js-sample || true
+                pm2 start index.js --name node-js-sample --update-env
+                sudo systemctl reload nginx
+            '''
+          }
       }
     }
   }
