@@ -11,7 +11,7 @@ pipeline {
     stage('pull'){
         steps{
             dir('node-js-sample') {
-              git branch: 'main', url: 'https://github.com/Vaishnavi-M-Patil/node-js-sample.git'
+              git branch: 'master', url: 'https://github.com/Vaishnavi-M-Patil/node-js-sample.git'
             }
         }
     }
