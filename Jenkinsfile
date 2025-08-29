@@ -26,6 +26,7 @@ pipeline {
       steps {
           dir('node-js-sample') {
             sh '''
+                npm install
                 pm2 stop node-js-sample || true
                 pm2 start index.js --name node-js-sample --update-env
                 sudo systemctl reload nginx
