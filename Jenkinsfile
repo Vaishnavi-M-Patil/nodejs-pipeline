@@ -22,6 +22,11 @@ pipeline {
           }
       }
     }
+    stage('Setup PM2') {
+      steps {
+        sh 'npm install -g pm2'
+      }
+    }
     stage('Deploy') {
       steps {
           dir('node-js-sample') {
