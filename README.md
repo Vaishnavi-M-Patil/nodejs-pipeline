@@ -1,44 +1,122 @@
-### This repository is no longer maintained!
+# CI/CD Pipeline with Jenkins
+To set up a CI/CD pipeline with Jenkins on a Linux server, begin by installing Jenkins, and then configure a pipeline job to pull code from Git, install dependencies, run tests, and deploy the application.
 
-**For the most up to date test app to get you started on Heroku, head on over to [`node-js-getting-started`](https://github.com/heroku/node-js-getting-started).**
-
----
-
-# node-js-sample
-
-A barebones Node.js app using [Express 4](http://expressjs.com/).
-
-## Running Locally
-
-Make sure you have [Node.js](http://nodejs.org/) and the [Heroku Toolbelt](https://toolbelt.heroku.com/) installed.
-
-```sh
-git clone git@github.com:heroku/node-js-sample.git # or clone your own fork
-cd node-js-sample
-npm install
-npm start
+## Installing Jenkins on Linux
+1. Install Jenkins on ubuntu
+```bash
+sudo wget -O /etc/apt/keyrings/jenkins-keyring.asc \
+  https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+```
+```
+echo "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc]" \
+  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+```
+```
+sudo apt-get update
+```
+```
+sudo apt-get install jenkins -y
+```
+2. Also we need java
+```bash
+sudo apt update
+```
+```
+sudo apt install fontconfig openjdk-21-jre -y
+```
+```
+sudo apt install openjdk-11-jdk -y
+```
+```
+java -version
+```
+3. Start and enable Jenkins
+```bash
+# You can enable the Jenkins service to start at boot with the command:
+sudo systemctl enable jenkins
+```
+```
+# You can start the Jenkins service with the command:
+sudo systemctl start jenkins
+```
+```
+# Check the status of the Jenkins service:
+sudo systemctl status jenkins
 ```
 
-Your app should now be running on [localhost:5000](http://localhost:5000/).
-
-## Deploying to Heroku
-
+## Install required packages for nodejs application
 ```
-heroku create
-git push heroku master
-heroku open
+sudo apt nodejs npm -y
+```
+```
+sudo npm install pm2@latest -g
+```
+```
+sudo -u jenkins pm2 save
+sudo -u jenkins pm2 startup
+```
+#### Purpose of these commands
+- pm2 save: Saves the current process list so PM2 will remember which applications to start on reboot.
+- pm2 startup: Generates and configures a startup script/systemd service so PM2 and your Node.js apps restart automatically when the machine boots.
+```
+sudo -u jenkins pm2 list
 ```
 
-Alternatively, you can deploy your own copy of the app using the web-based flow:
+## Creating a Jenkins Pipeline Job
+1. Install Git, Pipeline, Pipeline:Groovy libraries Plugins
+2. Create a New Pipeline Job
+3. Pipeline Script Example:
+```
+pipeline {
+    agent any
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+    stages {
+        stage('Clone Repository') {
+            steps {
+                git 'https://github.com/Vaishnavi-M-Patil/node-js-sample.git' 
+            }
+        }
+        stage('Install Dependencies') {
+            steps {
+                sh 'npm install' 
+            }
+        }
+        stage('Run Tests') {
+            steps {
+                sh 'npm test' 
+            }
+        }
+        stage('Build and Deploy') {
+            steps {
+                   sh 'chmod +x ./deploy.sh'
+                   sh './deploy.sh'
+            }
+        }
+    }
+}
+```
+`deploy.sh`:
+```
+#!/bin/bash
 
-## Documentation
+echo "Starting deployment..."
 
-For more information about using Node.js on Heroku, see these Dev Center articles:
+# Change to app directory if needed
+# cd /var/lib/jenkins/workspace/pipeline/
 
-- [10 Habits of a Happy Node Hacker](https://blog.heroku.com/archives/2014/3/11/node-habits)
-- [Getting Started with Node.js on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
-- [Heroku Node.js Support](https://devcenter.heroku.com/articles/nodejs-support)
-- [Node.js on Heroku](https://devcenter.heroku.com/categories/nodejs)
-- [Using WebSockets on Heroku with Node.js](https://devcenter.heroku.com/articles/node-websockets)
+
+# Install/update dependencies
+# npm install
+
+# Run any database migrations or build commands if required
+# npm run migrate
+npm run build
+
+# Restart the application with a process manager like pm2
+pm2 reload pipeline || pm2 start index.js --name pipeline
+
+echo "Deployment finished."
+```
+4. Now save and apply the pipeline
+5. Click on Build.
