@@ -164,3 +164,29 @@ sudo certbot --nginx -d free-domain.shop
 ```
 5. Access your app securely
 Open a browser and go to https://free-domain.shop to access your Node.js app via HTTPS.
+
+## Screenshots
+
+![Securitygrp](https://github.com/Vaishnavi-M-Patil/nodejs-pipeline/blob/main/cicd/1-securitygrp.png)
+
+![installjenkinsplugins](https://github.com/Vaishnavi-M-Patil/nodejs-pipeline/blob/main/cicd/2-installjenkinsplugins.png)
+
+![createJob](https://github.com/Vaishnavi-M-Patil/nodejs-pipeline/blob/main/cicd/3-createJob.png)
+
+![createHostedzone](https://github.com/Vaishnavi-M-Patil/nodejs-pipeline/blob/main/cicd/4-createHostedzone.png)
+
+![changeNS](https://github.com/Vaishnavi-M-Patil/nodejs-pipeline/blob/main/cicd/5-changeNS.png)
+
+![nginxSiteConfig](https://github.com/Vaishnavi-M-Patil/nodejs-pipeline/blob/main/cicd/6-nginxSiteConfig.png)
+
+![installpm2](https://github.com/Vaishnavi-M-Patil/nodejs-pipeline/blob/main/cicd/7-installpm2.png)
+
+![savepm2](https://github.com/Vaishnavi-M-Patil/nodejs-pipeline/blob/main/cicd/8-savepm2.png)
+
+![buildPipeline](https://github.com/Vaishnavi-M-Patil/nodejs-pipeline/blob/main/cicd/9-buildPipeline.png)
+
+![pipelineComplete](https://github.com/Vaishnavi-M-Patil/nodejs-pipeline/blob/main/cicd/10-pipelineComplete.png)
+
+![pm2List](https://github.com/Vaishnavi-M-Patil/nodejs-pipeline/blob/main/cicd/11-pm2List.png)
+
+![output](https://github.com/Vaishnavi-M-Patil/nodejs-pipeline/blob/main/cicd/12-output.png)
