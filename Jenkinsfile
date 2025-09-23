@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/Vaishnavi-M-Patil/node-js-sample.git' 
+                git branch: 'main', url: 'https://github.com/Vaishnavi-M-Patil/node-app.git' 
             }
         }
         stage('Install Dependencies') {
