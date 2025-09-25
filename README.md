@@ -167,7 +167,7 @@ To automate builds when code is pushed to GitHub, configure a webhook.
 Now whenever you push code to GitHub, Jenkins will automatically trigger the pipeline, build, and redeploy your `Node.js` application.
 
 ### Jenkins Server:
-![instance](https://github.com/Vaishnavi-M-Patil/nodejs-pipeline/blob/main/cicd/1-instCreate.png)
+![instance](https://github.com/Vaishnavi-M-Patil/nodejs-pipeline/blob/main/cicd/1-instance.png)
 
 ### Hosted Zone:
 ![hostedzone](https://github.com/Vaishnavi-M-Patil/nodejs-pipeline/blob/main/cicd/2-createHostedzone.png)
