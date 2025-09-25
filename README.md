@@ -99,22 +99,6 @@ pipeline {
     }
 }
 ```
-
-- `deploy.sh` Script:
-```
-#!/bin/bash
-
-echo "Starting deployment..."
-
-# Run build
-npm run build
-
-# Restart Node.js app with pm2
-pm2 reload pipeline || pm2 start index.js --name pipeline
-
-echo "Deployment finished."
-
-```
 4. Save the pipeline and click **Build**.
 
 ---
@@ -164,6 +148,9 @@ sudo certbot --nginx -d free-domain.shop
 ```
 5. Access your app securely
 Open a browser and go to https://free-domain.shop to access your Node.js app via HTTPS.
+
+## Webhook
+
 
 ## Screenshots
 
