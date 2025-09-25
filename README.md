@@ -1,24 +1,6 @@
 # Jenkins CI/CD Pipeline for Node.js Application with NGINX Reverse Proxy and SSL
 This guide provides step-by-step instructions to set up a full CI/CD pipeline on a Linux server using Jenkins for a Node.js application. It also covers configuring NGINX as a reverse proxy for your app with a domain name and securing it with SSL using Certbot.
 
-graph LR
-  A[GitHub Repository] -- Push code --> B[GitHub Webhook]
-  B -- Sends payload --> C[Jenkins Server (/github-webhook/)]
-  C -- Runs pipeline --> D[Build, Test, Deploy Node.js App]
-  D -- Starts app with PM2 --> E[Node.js App Server (Port 5000)]
-  F[NGINX Server]
-  E -- Proxy to --> F
-  F -- Serves app securely --> G[User via HTTPS]
-
-  style A fill:#f9f,stroke:#333,stroke-width:1px
-  style B fill:#bbf,stroke:#333,stroke-width:1px
-  style C fill:#bfb,stroke:#333,stroke-width:1px
-  style D fill:#f96,stroke:#333,stroke-width:1px
-  style E fill:#fcf,stroke:#333,stroke-width:1px
-  style F fill:#cff,stroke:#333,stroke-width:1px
-  style G fill:#ffd,stroke:#333,stroke-width:1px
-
-
 ## Installing Jenkins on Ubuntu
 1. Install required Java versions:
 ```bash
