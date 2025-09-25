@@ -154,6 +154,7 @@ Open a browser and go to https://free-domain.shop to access your Node.js app via
 
 ## Configuring GitHub Webhook for Auto Deployment
 To automate builds when code is pushed to GitHub, configure a webhook.
+
 1. Generate Jenkins API Token
   - Log into Jenkins UI.
   - Go to User Profile → Security.
