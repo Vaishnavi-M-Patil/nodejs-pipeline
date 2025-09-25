@@ -149,7 +149,7 @@ sudo certbot --nginx -d free-domain.shop
 5. Access your app securely
 Open a browser and go to https://free-domain.shop to access your Node.js app via HTTPS.
 
-#### NodeJS application:
+### NodeJS application:
 ![output1](https://github.com/Vaishnavi-M-Patil/nodejs-pipeline/blob/main/cicd/7-output1.png)
 
 ## Configuring GitHub Webhook for Auto Deployment
@@ -178,32 +178,32 @@ To automate builds when code is pushed to GitHub, configure a webhook.
 
 Now whenever you push code to GitHub, Jenkins will automatically trigger the pipeline, build, and redeploy your `Node.js` application.
 
-#### Jenkins Server:
+### Jenkins Server:
 ![instance](https://github.com/Vaishnavi-M-Patil/nodejs-pipeline/blob/main/cicd/1-instCreate.png)
 
-#### Hosted Zone:
+### Hosted Zone:
 ![hostedzone](https://github.com/Vaishnavi-M-Patil/nodejs-pipeline/blob/main/cicd/2-createHostedzone.png)
 
-#### Jenkins Pipeline:
+### Jenkins Pipeline:
 ![pipeline](https://github.com/Vaishnavi-M-Patil/nodejs-pipeline/blob/main/cicd/3-createPipeline.png)
 
-#### SSL Certificate:
+### SSL Certificate:
 ![certificate](https://github.com/Vaishnavi-M-Patil/nodejs-pipeline/blob/main/cicd/4-createCertificate.png)
 
-#### NGINX site configuration:
+### NGINX site configuration:
 ![Sitefile](https://github.com/Vaishnavi-M-Patil/nodejs-pipeline/blob/main/cicd/5-siteConfig.png)
 
-#### PM2 List:
+### PM2 List:
 ![pm2list](https://github.com/Vaishnavi-M-Patil/nodejs-pipeline/blob/main/cicd/6-pm2list.png)
 
-#### Webhook API Token:
+### Webhook API Token:
 ![webhookapi](https://github.com/Vaishnavi-M-Patil/nodejs-pipeline/blob/main/cicd/8-webhookAPI.png)
 
-#### Github webhook:
+### Github webhook:
 ![webhook](https://github.com/Vaishnavi-M-Patil/nodejs-pipeline/blob/main/cicd/9-webhook.png)
 
-#### Pipeline build by github webhook:
+### Pipeline build by github webhook:
 ![pipelinesuccess](https://github.com/Vaishnavi-M-Patil/nodejs-pipeline/blob/main/cicd/10-pipelineSuccess.png)
 
-#### NodeJS application:
+### NodeJS application:
 ![output2](https://github.com/Vaishnavi-M-Patil/nodejs-pipeline/blob/main/cicd/11-output2.png)
