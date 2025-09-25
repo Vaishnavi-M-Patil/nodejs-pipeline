@@ -149,14 +149,17 @@ sudo certbot --nginx -d free-domain.shop
 5. Access your app securely
 Open a browser and go to https://free-domain.shop to access your Node.js app via HTTPS.
 
+#### NodeJS application:
+![output1](https://github.com/Vaishnavi-M-Patil/nodejs-pipeline/blob/main/cicd/7-output1.png)
+
 ## Configuring GitHub Webhook for Auto Deployment
 To automate builds when code is pushed to GitHub, configure a webhook.
 1. Generate Jenkins API Token
-- Log into Jenkins UI.
-- Go to User Profile → Security.
-- Under "API Token", click Add new token.
-- Name it (e.g., webhook) and click Generate.
-- Copy and save this token securely.
+  - Log into Jenkins UI.
+  - Go to User Profile → Security.
+  - Under "API Token", click Add new token.
+  - Name it (e.g., webhook) and click Generate.
+  - Copy and save this token securely.
 
 2. Configure GitHub Webhook
 - Go to your GitHub repository.
@@ -175,29 +178,32 @@ To automate builds when code is pushed to GitHub, configure a webhook.
 
 Now whenever you push code to GitHub, Jenkins will automatically trigger the pipeline, build, and redeploy your `Node.js` application.
 
+#### Jenkins Server:
+![instance](https://github.com/Vaishnavi-M-Patil/nodejs-pipeline/blob/main/cicd/1-instCreate.png)
 
-## Screenshots
+#### Hosted Zone:
+![hostedzone](https://github.com/Vaishnavi-M-Patil/nodejs-pipeline/blob/main/cicd/2-createHostedzone.png)
 
-![Securitygrp](https://github.com/Vaishnavi-M-Patil/nodejs-pipeline/blob/main/cicd/1-securitygrp.png)
+#### Jenkins Pipeline:
+![pipeline](https://github.com/Vaishnavi-M-Patil/nodejs-pipeline/blob/main/cicd/3-createPipeline.png)
 
-![installjenkinsplugins](https://github.com/Vaishnavi-M-Patil/nodejs-pipeline/blob/main/cicd/2-installjenkinsplugins.png)
+#### SSL Certificate:
+![certificate](https://github.com/Vaishnavi-M-Patil/nodejs-pipeline/blob/main/cicd/4-createCertificate.png)
 
-![createJob](https://github.com/Vaishnavi-M-Patil/nodejs-pipeline/blob/main/cicd/3-createJob.png)
+#### NGINX site configuration:
+![Sitefile](https://github.com/Vaishnavi-M-Patil/nodejs-pipeline/blob/main/cicd/5-siteConfig.png)
 
-![createHostedzone](https://github.com/Vaishnavi-M-Patil/nodejs-pipeline/blob/main/cicd/4-createHostedzone.png)
+#### PM2 List:
+![pm2list](https://github.com/Vaishnavi-M-Patil/nodejs-pipeline/blob/main/cicd/6-pm2list.png)
 
-![changeNS](https://github.com/Vaishnavi-M-Patil/nodejs-pipeline/blob/main/cicd/5-changeNS.png)
+#### Webhook API Token:
+![webhookapi](https://github.com/Vaishnavi-M-Patil/nodejs-pipeline/blob/main/cicd/8-webhookAPI.png)
 
-![nginxSiteConfig](https://github.com/Vaishnavi-M-Patil/nodejs-pipeline/blob/main/cicd/6-nginxSiteConfig.png)
+#### Github webhook:
+![webhook](https://github.com/Vaishnavi-M-Patil/nodejs-pipeline/blob/main/cicd/9-webhook.png)
 
-![installpm2](https://github.com/Vaishnavi-M-Patil/nodejs-pipeline/blob/main/cicd/7-installpm2.png)
+#### Pipeline build by github webhook:
+![pipelinesuccess](https://github.com/Vaishnavi-M-Patil/nodejs-pipeline/blob/main/cicd/10-pipelineSuccess.png)
 
-![savepm2](https://github.com/Vaishnavi-M-Patil/nodejs-pipeline/blob/main/cicd/8-savepm2.png)
-
-![buildPipeline](https://github.com/Vaishnavi-M-Patil/nodejs-pipeline/blob/main/cicd/9-buildPipeline.png)
-
-![pipelineComplete](https://github.com/Vaishnavi-M-Patil/nodejs-pipeline/blob/main/cicd/10-pipelineComplete.png)
-
-![pm2List](https://github.com/Vaishnavi-M-Patil/nodejs-pipeline/blob/main/cicd/11-pm2List.png)
-
-![output](https://github.com/Vaishnavi-M-Patil/nodejs-pipeline/blob/main/cicd/12-output.png)
+#### NodeJS application:
+![output2](https://github.com/Vaishnavi-M-Patil/nodejs-pipeline/blob/main/cicd/11-output2.png)
