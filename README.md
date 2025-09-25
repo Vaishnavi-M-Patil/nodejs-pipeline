@@ -92,8 +92,8 @@ pipeline {
         }
         stage('Build and Deploy') {
             steps {
-                   sh 'chmod +x ./deploy.sh'
-                   sh './deploy.sh'
+                   sh 'npm run build'
+                   sh 'pm2 reload pipeline || pm2 start index.js --name pipeline'
             }
         }
     }
