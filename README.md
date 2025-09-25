@@ -156,22 +156,13 @@ Open a browser and go to https://free-domain.shop to access your Node.js app via
 To automate builds when code is pushed to GitHub, configure a webhook.
 
 #### 1. Generate Jenkins API Token:
-  - Log into Jenkins UI, go to User Profile → Security, click Add new token under "API Token," name the token (e.g., webhook), click Generate, and immediately copy and save the token securely.
+  - Log into **Jenkins UI**, go to **User Profile** → **Security**, click **Add new token** under "API Token," name the token (e.g., webhook), click **Generate**, and immediately **copy and save** the token securely.
 
 #### 2. Configure GitHub Webhook:
-- Go to your GitHub repository.
-- Navigate to **Settings → Webhooks → Add webhook**.
-- Fill details as follows:
-- **Payload URL:** http://<your-server-ip>:8080/github-webhook/
-- **Example:** http://18.209.6.170:8080/github-webhook/
-- **Content type:** application/json
-- **Event trigger:** Select Just the push event
-- Check **Active** and click **Add webhook**.
+- Go to your GitHub repository, **navigate to Settings** → **Webhooks** → **Add webhook**, then fill in the Payload URL as `http://<your-server-ip>:8080/github-webhook/` (example: `http://18.209.6.170:8080/github-webhook/`), set Content type to **application/json**, select **Just the push event** as the trigger, check **Active**, and click **Add webhook**.
 
 #### 3. Update Jenkins Job for Webhook:
-- Open your Jenkins job configuration.
-- Under **Build Triggers**, check **GitHub hook trigger for GITScm polling**.
-- Save configuration.
+- Open your Jenkins job configuration, check the box for **GitHub hook trigger for GITScm polling** under **Build** Triggers, and **save** the configuration.
 
 Now whenever you push code to GitHub, Jenkins will automatically trigger the pipeline, build, and redeploy your `Node.js` application.
 
