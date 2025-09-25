@@ -2,24 +2,7 @@
 This guide provides step-by-step instructions to set up a full CI/CD pipeline on a Linux server using Jenkins for a Node.js application. It also covers configuring NGINX as a reverse proxy for your app with a domain name and securing it with SSL using Certbot.
 
 ## Installing Jenkins on Ubuntu
-1. Add Jenkins key and repository:
-```bash
-sudo wget -O /etc/apt/keyrings/jenkins-keyring.asc \
-  https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
-```
-```
-echo "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc]" \
-  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
-  /etc/apt/sources.list.d/jenkins.list > /dev/null
-```
-2. Update package list and install Jenkins:
-```
-sudo apt-get update
-```
-```
-sudo apt-get install jenkins -y
-```
-3. Install required Java versions:
+1. Install required Java versions:
 ```bash
 sudo apt update
 ```
@@ -31,6 +14,23 @@ sudo apt install openjdk-11-jdk -y
 ```
 ```
 java -version
+```
+2. Add Jenkins key and repository:
+```bash
+sudo wget -O /etc/apt/keyrings/jenkins-keyring.asc \
+  https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+```
+```
+echo "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc]" \
+  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+```
+3. Update package list and install Jenkins:
+```
+sudo apt-get update
+```
+```
+sudo apt-get install jenkins -y
 ```
 4. Enable and start Jenkins service:
 ```bash
