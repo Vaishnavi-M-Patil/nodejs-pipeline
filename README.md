@@ -107,6 +107,7 @@ pipeline {
 ---
 
 ## Accessing Node.js Application Using Domain with NGINX Reverse Proxy and SSL
+[🔗](https://www.digitalocean.com/community/tutorials/how-to-configure-nginx-as-a-reverse-proxy-on-ubuntu-22-04)
 
 1. Install Nginx 
 ```
